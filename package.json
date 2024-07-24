@@ -8,7 +8,9 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "build-prod": "ng build --prod --base-href /star-wars-reviews/"
+    "build-prod": "ng build --prod --base-href /star-wars-reviews/",
+    "build-prod-deploy": "ng build --prod",
+    "docker-image": "docker build -t jeffapotamous/starwarsreviews:0.0.2 . && docker push jeffapotamous/starwarsreviews:0.0.2"
   },
   "private": true,
   "dependencies": {
