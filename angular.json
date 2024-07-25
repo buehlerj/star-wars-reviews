@@ -119,7 +119,6 @@
       }
     }
   },
-  "defaultProject": "star-wars-reviews",
   "schematics": {
     "@schematics/angular:component": {
       "style": "scss"
