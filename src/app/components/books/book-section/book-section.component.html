@@ -4,10 +4,11 @@
     <div class="rank-index">{{index + 1}}</div>
 
     <div class="purchase-links-container">
-      <a *ngIf="book.googlePlayLink" href="{{book.googlePlayLink}}" target="_blank">
+      <a *ngIf="book.googlePlayLink" href="https://play.google.com/store/books/details?id={{book.googlePlayLink}}"
+        target="_blank">
         <img src="assets/images/gps.png">
       </a>
-      <a *ngIf="book.amazonLink" href="{{book.amazonLink}}" target="_blank">
+      <a *ngIf="book.amazonLink" href="https://www.amazon.com/dp/{{book.amazonLink}}" target="_blank">
         <img src="assets/images/amazon.png">
       </a>
     </div>
