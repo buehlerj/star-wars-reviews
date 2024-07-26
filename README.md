@@ -2,20 +2,20 @@
 
 [Website](https://swlib.jeffapotamous.com/)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.2.0.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.12.
 
 ## Prerequisites
-* [NodeJS 12.19.0](https://nodejs.org/dist/v12.19.0/node-v12.19.0-x64.msi).
+* [NodeJS 16.14.2](https://nodejs.org/dist/v16.14.2/node-v16.14.2.pkg).
   * *It is recommended that you use NVM in order to run/use multiple versions of Node/npm. Note: If you already have Node and npm installed, you will need to uninstall both Node and npm before installing NVM.*
     * [NVM for Windows](https://github.com/coreybutler/nvm-windows)
     * [NVM for Mac](https://github.com/nvm-sh/nvm)
   * **If using NVM**, install the necessary version(s) of Node after referring to the NVM documentation.
-  * **If not using NVM**, install Node by going to the [NodeJS website](https://nodejs.org) and following the instructions there to install version 12.19.0.
-    * [NodeJS for Windows](https://nodejs.org/dist/v12.19.0/node-v12.190-x86.msi)
-    * [NodeJS for Mac](https://nodejs.org/dist/v12.19.0/node-v12.19.0.pkg)
-* [angular-cli 10.2](https://github.com/angular/angular-cli) by running the following command.
+  * **If not using NVM**, install Node by going to the [NodeJS website](https://nodejs.org) and following the instructions there to install version 16.14.2.
+    * [NodeJS for Windows](https://nodejs.org/dist/v16.14.2/node-v16.14.2.pkg)
+    * [NodeJS for Mac](https://nodejs.org/dist/v16.14.2/node-v16.14.2.pkg)
+* [angular-cli 16.2](https://github.com/angular/angular-cli) by running the following command.
   ```
-    $ npm install -g @angular/cli@10.2
+    $ npm install -g @angular/cli@16.2
   ```
 
 ## Development server
