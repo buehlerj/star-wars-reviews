@@ -13,7 +13,6 @@ export class RebelsEpisodesService {
 
   public setRebelsEpisodes(newRebelsEps: TvEpisode[]) {
     this.rebelsEpisodes = newRebelsEps;
-    console.log(newRebelsEps);
   }
 
   public getRebelsEpisodes(): TvEpisode[] {

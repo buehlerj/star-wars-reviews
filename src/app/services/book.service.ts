@@ -7,6 +7,9 @@ import { Book } from '../interfaces/interfaces';
 export class BookService {
 
   private listOfBooks: Book[];
+  private greatBooks: Book[];
+  private goodBooks: Book[];
+  private alrightBooks: Book[];
 
   public setListOfBooks(newBooks: Book[]) {
     this.listOfBooks = newBooks;
@@ -14,6 +17,30 @@ export class BookService {
 
   public getListOfBooks(): Book[] {
     return this.listOfBooks;
+  }
+
+  public setListOfGreatBooks(greatBooks: Book[]) {
+    this.greatBooks = greatBooks;
+  }
+
+  public getGreatBooks(): Book[] {
+    return this.greatBooks;
+  }
+
+  public setListOfGoodBooks(goodBooks: Book[]) {
+    this.goodBooks = goodBooks;
+  }
+
+  public getGoodBooks(): Book[] {
+    return this.goodBooks;
+  }
+
+  public setListOfAlrightBooks(alrightBooks: Book[]) {
+    this.alrightBooks = alrightBooks;
+  }
+
+  public getAlrightBooks(): Book[] {
+    return this.alrightBooks;
   }
 
   public getInProgressBooks(): Book[] {

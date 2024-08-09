@@ -34,7 +34,7 @@ export class BookReviewComponent implements OnInit {
     this.bookService.getListOfBooks().forEach((episode: Book) => {
       switch (code) {
         case ReviewClass.BEST:
-          this.bestCanonBooks.push(episode);
+          // this.bestCanonBooks.push(episode);
           break;
         case ReviewClass.GOOD:
           this.goodCanonBooks.push(episode);
@@ -59,6 +59,8 @@ export class BookReviewComponent implements OnInit {
           break;
       }
     });
+
+    this.bestCanonBooks = this.bookService.getGreatBooks();
 
     this.inProgress = this.bookService.getInProgressBooks();
     this.inQueue = this.bookService.getInQueueBooks();
