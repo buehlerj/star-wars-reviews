@@ -1,0 +1,100 @@
+<h1>Books</h1>
+
+<div class="grid grid-with-4-columns" cdkDropListGroup>
+  <ng-container [ngTemplateOutlet]="bookOrderForm"
+    [ngTemplateOutletContext]="{bookList: greatBooks, severity: 'great'}">
+  </ng-container>
+
+  <ng-container [ngTemplateOutlet]="bookOrderForm" [ngTemplateOutletContext]="{bookList: goodBooks, severity: 'good'}">
+  </ng-container>
+
+  <ng-container [ngTemplateOutlet]="bookOrderForm"
+    [ngTemplateOutletContext]="{bookList: alrightBooks, severity: 'alright'}">
+  </ng-container>
+
+  <ng-container [ngTemplateOutlet]="bookOrderForm"
+    [ngTemplateOutletContext]="{bookList: inProgressBooks, severity: 'in-progress'}">
+  </ng-container>
+</div>
+
+<div>
+  <p-button label="Create Book" (onClick)="createBook()"></p-button>
+</div>
+
+<ng-template #bookOrderForm let-bookList="bookList" let-severity="severity">
+  <p-orderList [value]="bookList" [dragdrop]="true" (onReorder)="onDrop($event)">
+    <ng-template let-book pTemplate="book">
+      <div class="{{severity}}-gradient-container book-preview">
+        <div>
+          <img class="book-cover-preview" [src]="book.file_url">
+        </div>
+        <div>
+          {{book.name}}
+        </div>
+        <p-button label="Edit" (onClick)="editBook(book, severity)"></p-button>
+      </div>
+    </ng-template>
+  </p-orderList>
+</ng-template>
+
+<p-dialog header="Edit Book" [(visible)]="display" [modal]="true" [style]="{width: '50vw'}">
+  <form *ngIf="selectedBook">
+    <div>
+      <label>
+        <select name="ranking" [(ngModel)]="selectedBookNewRanking">
+          <option value="great">Great</option>
+          <option value="good">Good</option>
+          <option value="alright">Alright</option>
+          <option value="in-progress">In Progress</option>
+        </select>
+      </label>
+    </div>
+    <div>
+      <label>
+        Name
+        <input name="book-name" [(ngModel)]="selectedBook.name">
+      </label>
+    </div>
+    <div>
+      <label>
+        File URL
+        <input name="file-url" [(ngModel)]="selectedBook.file_url">
+      </label>
+    </div>
+    <div>
+      <label>
+        Pros
+        <textarea name="pros" [(ngModel)]="selectedBook.pros"></textarea>
+      </label>
+    </div>
+    <div>
+      <label>
+        Cons
+        <textarea name="cons" [(ngModel)]="selectedBook.cons"></textarea>
+      </label>
+    </div>
+    <div>
+      <label>
+        Amazon
+        <input name="amazon" [(ngModel)]="selectedBook.amazon_product_id">
+      </label>
+    </div>
+    <div>
+      <label>
+        Google
+        <input name="google" [(ngModel)]="selectedBook.google_play_product_id">
+      </label>
+    </div>
+    <div>
+      <label>
+        Apple
+        <input name="apple" [(ngModel)]="selectedBook.apple_product_id">
+      </label>
+    </div>
+  </form>
+  <p-footer>
+    <p-button label="Close" (onClick)="display = false"></p-button>
+    <p-button label="Save" (onClick)="updateBook()"></p-button>
+    <!-- <p-button label="Delete" (onClick)="deleteBook()"></p-button> -->
+  </p-footer>
+</p-dialog>

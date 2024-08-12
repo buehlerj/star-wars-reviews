@@ -66,6 +66,12 @@ a {
   display: grid;
 }
 
+@for $i from 1 through 12 {
+  .grid-with-#{$i}-columns {
+    grid-template-columns: repeat(#{$i}, 1fr);
+  }
+}
+
 .inline-block {
   display: inline-block;
 }
@@ -285,4 +291,16 @@ a {
   &::before {
     background-image: linear-gradient(to right, #0e4b8a, #262626);
   }
+}
+
+// PrimeNG
+.p-dialog {
+  background-color: rgb(7 23 43 / 58%);
+  backdrop-filter: blur(6px);
+  padding: 17px 13px;
+}
+
+.p-dialog-mask {
+  background-color: rgb(0 0 0 / 60%);
+  backdrop-filter: blur(6px);
 }

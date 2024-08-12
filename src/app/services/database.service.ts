@@ -2,13 +2,11 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { Book, CloneWarsEpisode, Relationship, Tag, TvEpisode } from '../interfaces/interfaces';
-import { BookService } from './book.service';
 import { CloneWarsEpisodesService } from './clone-wars-episodes.service';
 import { TagService } from './tag.service';
 import { BookTagsService } from './book-tags.service';
 import { CwTagsService } from './cw-tags.service';
 import { RebelsEpisodesService } from './rebels-episodes.service';
-import { QueryService } from './query.service';
 
 @Injectable({
   providedIn: 'root'
@@ -25,13 +23,11 @@ export class DatabaseService {
 
   constructor(
     private http: HttpClient,
-    private bookService: BookService,
     private cloneWarsEpisodesService: CloneWarsEpisodesService,
     private rebelsEpisodesService: RebelsEpisodesService,
     private tagService: TagService,
     private bookTagsService: BookTagsService,
-    private cwTagsService: CwTagsService,
-    private queryService: QueryService
+    private cwTagsService: CwTagsService
   ) {
     this.booksLoadedRef = new Subject<Book[]>();
     this.cloneWarsEpisodesLoadedRef = new Subject<CloneWarsEpisode[]>();
@@ -39,25 +35,6 @@ export class DatabaseService {
     this.tagsLoadedRef = new Subject<Tag[]>();
     this.bookTagRelsLoadedRef = new Subject<Relationship[]>();
     this.cwTagRelsLoadedRef = new Subject<Relationship[]>();
-  }
-
-  public loadBooks() {
-    this.http.get('./assets/db/books.json').toPromise().then((data: Book[]) => {
-      this.bookService.setListOfBooks(data);
-      this.booksLoadedRef.next(data);
-    });
-
-    this.queryService.get('greatbooks').subscribe((data: any) => {
-      this.bookService.setListOfGreatBooks(data);
-    });
-
-    this.queryService.get('goodbooks').subscribe((data: any) => {
-      this.bookService.setListOfGoodBooks(data);
-    });
-
-    this.queryService.get('alrightbooks').subscribe((data: any) => {
-      this.bookService.setListOfAlrightBooks(data);
-    });
   }
 
   public loadCloneWarsEpisodes() {

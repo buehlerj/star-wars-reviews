@@ -11,15 +11,23 @@ export class QueryService {
 
   constructor(private http: HttpClient) { }
 
-  public get(subdirectory: string, id?: string): Observable<any> {
-    return this.http.get<any>(this.domain + subdirectory + (id ? `/${id}` : ''));
+  public get(path: string, id?: string): Observable<any> {
+    return this.http.get<any>(`${this.domain}${path}` + (id ? `/${id}` : ''));
   }
 
-  public post(subdirectory: string, queryParams: { [key: string]: any }): Observable<any> {
-    return this.http.post<any>(this.domain + subdirectory, queryParams);
+  public post(path: string, queryParams: { [key: string]: any }): Observable<any> {
+    return this.http.post<any>(`${this.domain}${path}`, queryParams);
   }
 
-  public put(subdirectory: string, id: number, queryParams: { [key: string]: any }): Observable<any> {
-    return this.http.put(`${this.domain}${subdirectory}/${id}`, queryParams);
+  public put(path: string, queryParams: { [key: string]: any }): Observable<any> {
+    return this.http.put(`${this.domain}${path}`, queryParams);
+  }
+
+  public putWithID(path: string, id: number, queryParams: { [key: string]: any }): Observable<any> {
+    return this.http.put(`${this.domain}${path}/${id}`, queryParams);
+  }
+
+  public delete(path: string, id: number): Observable<any> {
+    return this.http.delete(`${this.domain}${path}/${id}`);
   }
 }
