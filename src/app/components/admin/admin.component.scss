@@ -1,0 +1,16 @@
+@import '../../../styles.scss';
+
+.book-preview {
+  margin: 3px 0;
+  padding: 10px 13px;
+}
+
+.book-cover-preview {
+  max-width: 37px;
+}
+
+:host ::ng-deep {
+  .p-orderlist-controls{
+    display: none;
+  }
+}

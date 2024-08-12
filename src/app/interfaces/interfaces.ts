@@ -19,10 +19,10 @@ export interface Book {
 	name: string;
 	pros: string;
 	cons: string;
-	fileName: string;
-	amazonLink: string;
-	googlePlayLink?: string;
-	appleLink?: string;
+	file_url: string;
+	amazon_product_id: string;
+	google_play_product_id?: string;
+	apple_product_id?: string;
 	hasCharacterSection?: boolean;
 }
 

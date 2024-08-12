@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { Book, CloneWarsEpisode, Relationship, Tag, TvEpisode } from '../interfaces/interfaces';
-import { BookService } from './book.service';
 import { CloneWarsEpisodesService } from './clone-wars-episodes.service';
 import { TagService } from './tag.service';
 import { BookTagsService } from './book-tags.service';
@@ -24,7 +23,6 @@ export class DatabaseService {
 
   constructor(
     private http: HttpClient,
-    private bookService: BookService,
     private cloneWarsEpisodesService: CloneWarsEpisodesService,
     private rebelsEpisodesService: RebelsEpisodesService,
     private tagService: TagService,
@@ -37,13 +35,6 @@ export class DatabaseService {
     this.tagsLoadedRef = new Subject<Tag[]>();
     this.bookTagRelsLoadedRef = new Subject<Relationship[]>();
     this.cwTagRelsLoadedRef = new Subject<Relationship[]>();
-  }
-
-  public loadBooks() {
-    this.http.get('./assets/db/books.json').toPromise().then((data: Book[]) => {
-      this.bookService.setListOfBooks(data);
-      this.booksLoadedRef.next(data);
-    });
   }
 
   public loadCloneWarsEpisodes() {

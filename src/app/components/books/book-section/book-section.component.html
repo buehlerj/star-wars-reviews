@@ -4,10 +4,11 @@
     <div class="rank-index">{{index + 1}}</div>
 
     <div class="purchase-links-container">
-      <a *ngIf="book.googlePlayLink" href="{{book.googlePlayLink}}" target="_blank">
+      <a *ngIf="book.google_play_product_id" href="https://play.google.com/store/books/details?id={{book.google_play_product_id}}"
+        target="_blank">
         <img src="assets/images/gps.png">
       </a>
-      <a *ngIf="book.amazonLink" href="{{book.amazonLink}}" target="_blank">
+      <a *ngIf="book.amazon_product_id" href="https://www.amazon.com/dp/{{book.amazon_product_id}}" target="_blank">
         <img src="assets/images/amazon.png">
       </a>
     </div>
@@ -16,7 +17,7 @@
       <h4>
         {{book.name}}
       </h4>
-      <img class="book-image" src="assets/images/books/{{book.fileName}}">
+      <img class="book-image" src="{{book.file_url}}">
       <div *ngIf="book?.pros.length > 0">
         <h4>Pros</h4>
         <p class="left">
