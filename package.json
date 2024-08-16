@@ -9,13 +9,13 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "build-prod": "ng build --prod --base-href /star-wars-reviews/",
-    "build-prod-deploy": "ng build --prod",
-    "docker-image": "docker build -t jeffapotamous/starwarsreviews:0.0.2 . && docker push jeffapotamous/starwarsreviews:0.0.2"
+    "build-prod-deploy": "ng build --configuration production",
+    "docker-image": "docker build -t jeffapotamous/starwarsreviews:0.1.1 . && docker push jeffapotamous/starwarsreviews:0.1.1"
   },
   "private": true,
   "dependencies": {
     "@angular/animations": "^16.2.12",
-    "@angular/cdk": "^14.2.7",
+    "@angular/cdk": "^16.2.14",
     "@angular/common": "^16.2.12",
     "@angular/compiler": "^16.2.12",
     "@angular/core": "^16.2.12",

@@ -154,7 +154,7 @@ export class AdminComponent {
       setTimeout(() => {
         this.display = false;
         this.refreshBookList();
-      }, 100);
+      }, 700);
     });
   }
 

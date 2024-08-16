@@ -1,4 +1,4 @@
-FROM node:16.17.0 as build
+FROM node:16.14.0 as build
 
 WORKDIR /usr/local/app
 
@@ -11,5 +11,7 @@ RUN npm run build-prod-deploy
 FROM nginx:1.21.0
 
 COPY --from=build /usr/local/app/dist /usr/share/nginx/html
+
+COPY ./dist/web.config /usr/share/nginx/html/web.config
 
 EXPOSE 80

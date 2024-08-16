@@ -4,7 +4,6 @@ import { Subject } from 'rxjs';
 import { Book, CloneWarsEpisode, Relationship, Tag, TvEpisode } from '../interfaces/interfaces';
 import { CloneWarsEpisodesService } from './clone-wars-episodes.service';
 import { TagService } from './tag.service';
-import { BookTagsService } from './book-tags.service';
 import { CwTagsService } from './cw-tags.service';
 import { RebelsEpisodesService } from './rebels-episodes.service';
 
@@ -26,7 +25,6 @@ export class DatabaseService {
     private cloneWarsEpisodesService: CloneWarsEpisodesService,
     private rebelsEpisodesService: RebelsEpisodesService,
     private tagService: TagService,
-    private bookTagsService: BookTagsService,
     private cwTagsService: CwTagsService
   ) {
     this.booksLoadedRef = new Subject<Book[]>();
@@ -55,13 +53,6 @@ export class DatabaseService {
     this.http.get('./assets/db/tags.json').toPromise().then((data: Tag[]) => {
       this.tagService.setTags(data);
       this.tagsLoadedRef.next(data);
-    });
-  }
-
-  public loadBookTagRelationships() {
-    this.http.get('./assets/db/tag-books.json').toPromise().then((data: Relationship[]) => {
-      this.bookTagsService.setBookTagRelationships(data);
-      this.bookTagRelsLoadedRef.next(data);
     });
   }
 
