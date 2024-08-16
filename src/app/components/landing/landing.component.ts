@@ -1,4 +1,4 @@
-import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { CloneWarsEpisode, Relationship, Tag } from '../../interfaces/interfaces';
 import { DatabaseService } from '../../services/database.service';
 import { Router } from '@angular/router';
@@ -19,14 +19,13 @@ export class LandingComponent implements OnInit {
   // ADMIN
   private arrowKeyCurrentIndex: number;
   private arrowKeyListener: any[];
-  @ViewChild('eeTemplate') eeTemplate: any;
 
   constructor(private databaseService: DatabaseService, private router: Router) {
     this.loading = true;
     this.previewHeader = false;
     this.previewHeaderInterrupted = false;
     this.currentCount = 0;
-    this.totalFilesToLoadCount = 5;
+    this.totalFilesToLoadCount = 4;
 
     this.arrowKeyListener = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
     this.arrowKeyCurrentIndex = 0;
@@ -46,13 +45,11 @@ export class LandingComponent implements OnInit {
     this.databaseService.loadCloneWarsEpisodes();
     this.databaseService.loadRebelsEpisodes();
     this.databaseService.loadTags();
-    this.databaseService.loadBookTagRelationships();
     this.databaseService.loadCwTagRelationships();
 
     this.databaseService.cloneWarsEpisodesLoadedRef.subscribe((_data: CloneWarsEpisode[]) => { this.checkIfDoneLoading(); });
     this.databaseService.rebelsEpisodesLoadedRef.subscribe((_data) => { this.checkIfDoneLoading(); });
     this.databaseService.tagsLoadedRef.subscribe((_data: Tag[]) => { this.checkIfDoneLoading(); });
-    this.databaseService.bookTagRelsLoadedRef.subscribe((_data: Relationship[]) => { this.checkIfDoneLoading(); });
     this.databaseService.cwTagRelsLoadedRef.subscribe((_data: Relationship[]) => { this.checkIfDoneLoading(); });
   }
 
